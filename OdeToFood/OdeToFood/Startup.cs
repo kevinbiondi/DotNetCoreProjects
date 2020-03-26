@@ -55,6 +55,8 @@ namespace OdeToFood
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            //app.UseNodeModules();
+            //app.UseCookiePolicy();
 
             app.UseRouting();
 
@@ -63,6 +65,7 @@ namespace OdeToFood
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }
