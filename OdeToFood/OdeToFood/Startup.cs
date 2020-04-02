@@ -35,10 +35,10 @@ namespace OdeToFood
             //services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
 
             //Biondi --added to switch over to use SqlRestaurantData
-            //services.AddScoped<IRestaurantData, SqlRestaurantData>();
+            services.AddScoped<IRestaurantData, SqlRestaurantData>();
 
             //to run in IIS first with the inmemory data then later add the sql server database
-            services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
+            //services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
 
             services.AddRazorPages();
         }
@@ -46,16 +46,16 @@ namespace OdeToFood
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
+           // if (env.IsDevelopment())
+            //{
                 app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+            //}
+            //else
+            //{
+             //   app.UseExceptionHandler("/Error");
+              //  // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+               // app.UseHsts();
+           // }
 
             app.Use(SayHelloMiddleware);
             app.UseHttpsRedirection();
